@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "photophobia",
+	"version": "${version}",
+	"name": "畏光",
+	"description": "一个心理恐怖生存模组，玩家需要管理心率并躲避趋光怪物",
+	"authors": [
+		"AI Developer"
+	],
+	"contact": {
+		"homepage": "https://github.com/ai/photophobia",
+		"sources": "https://github.com/ai/photophobia"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/photophobia/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.ai.photophobia.PhotophobiaMod"
+		],
+		"client": [
+			"com.ai.photophobia.PhotophobiaModClient"
+		]
+	},
+	"mixins": [
+		"photophobia.mixins.json",
+		{
+			"config": "photophobia.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"modmenu": "*"
+	}
+}
