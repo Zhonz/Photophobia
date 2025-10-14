@@ -79,32 +79,30 @@ public class HeartRateManager {
     /**
      * 获取心脏动画帧
      * 
-     * @param heartRate 当前心率
-     * @param tickDelta 渲染间隔
+     * @param heartRate      当前心率
+     * @param totalTickDelta 累计渲染间隔
      * @return 心脏动画帧索引
      */
-    public static int getHeartAnimationFrame(int heartRate, float tickDelta) {
+    public static int getHeartAnimationFrame(int heartRate, float totalTickDelta) {
         // 根据心率计算动画速度
-        float animationSpeed = heartRate / 60.0f; // 基础速度
-        long time = System.currentTimeMillis();
+        float animationSpeed = Math.max(1.0f, heartRate / 25.0f); // 1-8 FPS
 
-        // 计算当前帧
-        int frameCount = 8; // 假设有8帧动画
-        int frame = (int) ((time / (1000 / animationSpeed)) % frameCount);
+        // 计算当前帧 - 使用tickDelta实现平滑动画
+        float frameTime = 20.0f / animationSpeed; // 每帧的tick数 (20 ticks = 1秒)
+        int frame = (int) ((totalTickDelta / frameTime) % 8);
 
-        return frame;
+        return MathHelper.clamp(frame, 0, 7);
     }
 
     /**
      * 获取心脏颜色
-     * 实现渐变变色效果：绿色→黄色→橙色→红色
      * 
      * @param heartRate    当前心率
-     * @param isCalmEffect 是否处于宁神粉尘效果中
-     * @return 心脏颜色 (0xAARRGGBB格式)
+     * @param isCalmEffect 是否宁神粉尘效果
+     * @return 心脏颜色
      */
     public static int getHeartColor(int heartRate, boolean isCalmEffect) {
-        // 宁神粉尘效果：心脏图标变黄
+        // 宁神粉尘效果强制黄色
         if (isCalmEffect) {
             return 0xFFFFFF55; // 黄色
         }
