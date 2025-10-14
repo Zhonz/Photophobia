@@ -11,7 +11,7 @@ import com.ai.photophobia.registry.NetworkRegistry;
  * 处理客户端渲染和效果
  * 
  * @author AI Developer
- * @version 1.0
+ * @version 1.1
  * @since 2024
  */
 public class PhotophobiaModClient implements ClientModInitializer {
@@ -23,9 +23,8 @@ public class PhotophobiaModClient implements ClientModInitializer {
 
         // HUD渲染暂时注释掉，需要找到正确的API
         /*
-         * HudRenderCallback.EVENT.register((matrixStack, tickDelta) -> {
-         * HeartRateManager.renderHeartRateHUD();
-         * CriticalVisionRenderer.renderScreenEffect(tickDelta);
+         * HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
+         * HeartHudRenderer.renderHeartHUD(drawContext, tickDelta);
          * });
          */
 
