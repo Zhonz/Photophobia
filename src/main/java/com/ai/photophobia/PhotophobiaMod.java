@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import com.ai.photophobia.system.HeartRateManager;
 import com.ai.photophobia.registry.StatusEffectRegistry;
 import com.ai.photophobia.registry.ItemRegistry;
+import com.ai.photophobia.registry.ItemGroupRegistry;
 import com.ai.photophobia.registry.EntityRegistry;
 import com.ai.photophobia.registry.NetworkRegistry;
 import com.ai.photophobia.registry.ConfigRegistry;
@@ -36,6 +37,9 @@ public class PhotophobiaMod implements ModInitializer {
 
         // 注册物品
         ItemRegistry.register();
+
+        // 注册物品组（创造模式标签页）
+        ItemGroupRegistry.register();
 
         // 注册实体
         EntityRegistry.register();
