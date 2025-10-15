@@ -29,12 +29,12 @@
 			"environment": "client"
 		}
 	],
-	"depends": {
-		"fabricloader": ">=0.17.2",
-		"minecraft": "~1.21.1",
-		"java": ">=21",
-		"fabric-api": "*"
-	},
+  "depends": {
+    "fabricloader": ">=0.17.3",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  },
 	"suggests": {
 		"modmenu": "*"
 	}

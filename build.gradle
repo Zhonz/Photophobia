@@ -41,8 +41,8 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	
-	// Cloth Config API (用于配置界面)
-	modImplementation "me.shedaniel.cloth:cloth-config-fabric:11.1.118"
+	// Cloth Config API (用于配置界面) - 1.20.1版本
+	modImplementation "me.shedaniel.cloth:cloth-config-fabric:11.1.106"
 	
 }
 
