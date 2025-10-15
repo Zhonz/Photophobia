@@ -3,7 +3,6 @@
 	"package": "com.ai.photophobia.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"client": [
-		"InGameHudMixin"
 	],
 	"mixins": [
 	],
