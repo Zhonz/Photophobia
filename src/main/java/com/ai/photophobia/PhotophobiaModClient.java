@@ -21,13 +21,6 @@ public class PhotophobiaModClient implements ClientModInitializer {
     public void onInitializeClient() {
         LOGGER.info("{} 客户端模组正在初始化...", PhotophobiaMod.MOD_NAME);
 
-        // HUD渲染暂时注释掉，需要找到正确的API
-        /*
-         * HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
-         * HeartHudRenderer.renderHeartHUD(drawContext, tickDelta);
-         * });
-         */
-
         // 注册客户端网络包
         NetworkRegistry.registerClient();
 

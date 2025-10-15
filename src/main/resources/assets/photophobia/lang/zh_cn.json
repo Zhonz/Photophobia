@@ -1,0 +1,25 @@
+{
+  "item.photophobia.lantern": "提灯",
+  "item.photophobia.calm_capsule": "凝神胶囊",
+  "item.photophobia.calm_powder": "凝神粉末", 
+  "item.photophobia.calm_spray": "凝神喷雾",
+  "item.photophobia.glowing_mushroom": "荧光蘑菇",
+  
+  "itemGroup.photophobia.main": "畏光",
+  
+  "effect.photophobia.concealment": "藏匿",
+  "effect.photophobia.concealment.description": "降低心率并对怪物隐身",
+  
+  "message.photophobia.heart_rate": "心率: %d",
+  "message.photophobia.calm_effect_active": "宁神效果生效中",
+  "message.photophobia.calm_capsule_used": "使用凝神胶囊，压力值降低30%",
+  "message.photophobia.calm_powder_used": "使用凝神粉末，压力值降低50%",
+  "message.photophobia.calm_spray_used": "使用凝神喷雾，压力值降低70%",
+  
+  "tooltip.photophobia.uses_remaining": "剩余使用次数: %d",
+  "tooltip.photophobia.stress_reduction": "压力值降低: %d%%",
+  "tooltip.photophobia.calm_capsule": "右键使用，降低30%压力值",
+  "tooltip.photophobia.calm_powder": "右键使用，降低50%压力值",
+  "tooltip.photophobia.calm_spray": "右键使用，降低70%压力值",
+  "tooltip.photophobia.lantern": "提供光源但会吸引怪物"
+}
