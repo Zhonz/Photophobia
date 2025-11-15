@@ -25,8 +25,8 @@ public class TitleScreenMixin {
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
 
         // 计算标题位置（屏幕中央）
-        int titleWidth = 256; // 假设标题图片宽度
-        int titleHeight = 64; // 假设标题图片高度
+        int titleWidth = 1076; // 实际图片宽度
+        int titleHeight = 496; // 实际图片高度
         int x = (screenWidth - titleWidth) / 2;
         int y = 30; // 距离顶部的距离
 
@@ -43,8 +43,7 @@ public class TitleScreenMixin {
     private void drawCustomTexture(MatrixStack matrices, int x, int y, int width, int height) {
         // 简单的纹理绘制实现 - 使用GUI系统
         // 这里使用GUI系统的绘制方法
-        // 注意：需要确保图片文件存在：src/main/resources/assets/photophobia/textures/gui/title.png
-        // 图片尺寸建议：256x64像素
+        // 使用实际的图片尺寸：1076x496像素
         // 使用基本的渲染方法
         // 这里留空，等待图片文件准备好后实现具体绘制逻辑
     }
