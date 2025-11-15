@@ -3,23 +3,24 @@
 	"id": "photophobia",
 	"version": "${version}",
 	"name": "畏光",
-	"description": "一个心理恐怖生存模组，玩家需要管理心率并躲避趋光怪物",
+	"description": "你会在黑夜里点燃第一排灯塔吗？",
 	"authors": [
-		"AI Developer"
+		"Zhonz",
+		"BrokenSnake"
 	],
 	"contact": {
-		"homepage": "https://github.com/ai/photophobia",
-		"sources": "https://github.com/ai/photophobia"
+		"homepage": "https://github.com/Zhonz/Photophobia",
+		"sources": "https://github.com/Zhonz/Photophobia"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/photophobia/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.ai.photophobia.PhotophobiaMod"
+			"com.zzandbrokensnake.photophobia.PhotophobiaMod"
 		],
 		"client": [
-			"com.ai.photophobia.PhotophobiaModClient"
+			"com.zzandbrokensnake.photophobia.PhotophobiaModClient"
 		]
 	},
 	"mixins": [

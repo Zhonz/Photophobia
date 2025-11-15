@@ -1,6 +1,14 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "photophobia:item/lantern"
-  }
+    "layer0": "photophobia:item/lantern_off"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 1.0
+      },
+      "model": "photophobia:item/lantern_on"
+    }
+  ]
 }
