@@ -13,6 +13,7 @@ import com.zzandbrokensnake.photophobia.registry.ConfigRegistry;
 import com.zzandbrokensnake.photophobia.registry.EnchantmentRegistry;
 import com.zzandbrokensnake.photophobia.system.WorldEventHandler;
 import com.zzandbrokensnake.photophobia.system.DeathEventHandler;
+import com.zzandbrokensnake.photophobia.system.EternalNightSystem;
 import com.zzandbrokensnake.photophobia.world.gen.PhotophobiaWorldGen;
 
 public class PhotophobiaMod implements ModInitializer {
@@ -40,6 +41,9 @@ public class PhotophobiaMod implements ModInitializer {
 
         // Initialize death event handler
         DeathEventHandler.initialize();
+
+        // Initialize eternal night system
+        EternalNightSystem.initialize();
 
         LOGGER.info("Photophobia Mod initialized successfully");
     }
