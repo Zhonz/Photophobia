@@ -33,14 +33,7 @@
   "message.photophobia.hiding_state": "进入藏匿状态，心率降低",
   "message.photophobia.cabinet_broken": "柜子已损坏",
   
-  "message.photophobia.heavy_blue_event": "重蓝事件",
   "tooltip.photophobia.blue_egg": "右键使用触发重蓝事件",
-  
-  "event.photophobia.heart_rate_surge": "心率激增",
-  "event.photophobia.visual_distortion": "视觉扭曲", 
-  "event.photophobia.auditory_hallucination": "听觉幻觉",
-  "event.photophobia.temporal_distortion": "时间扭曲",
-  "event.photophobia.reality_shift": "现实转换",
   
   "tooltip.photophobia.uses_remaining": "剩余使用次数: %d",
   "tooltip.photophobia.stress_reduction": "压力值降低: %d%%",
