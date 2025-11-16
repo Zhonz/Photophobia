@@ -43,8 +43,8 @@ public class CommandInterceptorSystem {
                                 // 检查配置是否启用time指令拦截
                                 PhotophobiaConfig config = PhotophobiaConfig.getConfig();
                                 if (config.commands.disableTimeCommand) {
-                                    // 检查权限 - 只有操作员可以绕过
-                                    return source.hasPermissionLevel(2);
+                                    // 所有权限等级都被拦截
+                                    return false;
                                 }
                                 return true;
                             })
@@ -136,8 +136,8 @@ public class CommandInterceptorSystem {
         PhotophobiaConfig config = PhotophobiaConfig.getConfig();
 
         if (config.commands.disableTimeCommand) {
-            // 只有操作员可以绕过拦截
-            return source.hasPermissionLevel(2);
+            // 所有权限等级都被拦截
+            return false;
         }
 
         return true;

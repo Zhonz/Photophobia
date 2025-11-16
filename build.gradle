@@ -50,6 +50,12 @@ dependencies {
 	// Cloth Config API (用于配置界面) - 1.20.1版本
 	modImplementation "me.shedaniel.cloth:cloth-config-fabric:11.1.106"
 	
+	// ModMenu - 可选前置，用于在游戏内配置界面
+	modImplementation "com.terraformersmc:modmenu:7.2.2"
+	
+	// 可选依赖处理
+	include(modImplementation("com.terraformersmc:modmenu:7.2.2"))
+	
 	// Geckolib - 为实体和物品提供高级动画支持
 	modImplementation "software.bernie.geckolib:geckolib-fabric-1.20.1:4.4.2"
 	
