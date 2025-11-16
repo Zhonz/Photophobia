@@ -19,11 +19,12 @@ repositories {
 	
 	maven { url = "https://maven.shedaniel.me/" }
 	maven { url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/" }
-	maven { url = "https://ladysnake.jfrog.io/artifactory/mods" }
+	// maven { url = "https://ladysnake.jfrog.io/artifactory/mods" } // 移除有问题的仓库
 	maven {
 		name = "Gegy"
 		url = uri("https://maven.gegy.dev")
 	}
+	maven { url = "https://maven.terraformersmc.com/releases/" } // 添加modmenu官方仓库
 }
 
 loom {
@@ -54,7 +55,7 @@ dependencies {
 	modImplementation "com.terraformersmc:modmenu:7.2.2"
 	
 	// 可选依赖处理
-	include(modImplementation("com.terraformersmc:modmenu:7.2.2"))
+	// include(modImplementation("com.terraformersmc:modmenu:7.2.2")) // 移除include，让modmenu作为可选依赖
 	
 	// Geckolib - 为实体和物品提供高级动画支持
 	modImplementation "software.bernie.geckolib:geckolib-fabric-1.20.1:4.4.2"

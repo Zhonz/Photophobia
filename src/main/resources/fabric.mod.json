@@ -3,7 +3,7 @@
 	"id": "photophobia",
 	"version": "${version}",
 	"name": "畏光",
-	"description": "你会在黑夜里点燃第一排灯塔吗？",
+	"description": "你会在黑夜里点亮第一排灯塔吗？",
 	"authors": [
 		"Zhonz",
 		"BrokenSnake"
@@ -38,5 +38,15 @@
   },
 	"suggests": {
 		"modmenu": "*"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.github": "https://github.com/Zhonz/Photophobia",
+				"modmenu.discord": "https://discord.gg/example"
+			},
+			"badges": [],
+			"update_checker": true
+		}
 	}
 }
