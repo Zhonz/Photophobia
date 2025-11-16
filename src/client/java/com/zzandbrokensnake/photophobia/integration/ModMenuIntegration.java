@@ -2,8 +2,7 @@ package com.zzandbrokensnake.photophobia.integration;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
-import com.zzandbrokensnake.photophobia.registry.PhotophobiaConfig;
-import me.shedaniel.autoconfig.AutoConfig;
+import com.zzandbrokensnake.photophobia.client.PhotophobiaConfigScreen;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
@@ -12,6 +11,6 @@ public class ModMenuIntegration implements ModMenuApi {
     
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return parent -> AutoConfig.getConfigScreen(PhotophobiaConfig.class, parent).get();
+        return PhotophobiaConfigScreen::create;
     }
 }
