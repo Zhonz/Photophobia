@@ -26,30 +26,44 @@ public class LanternItem extends Item {
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (entity instanceof PlayerEntity player) {
-            // 检查是否激活
-            if (isLit(stack) && (selected || isInOffhand(player, stack))) {
-                // 服务器端：消耗耐久和燃料
-                if (!world.isClient) {
-                    // 每秒消耗1耐久
-                    if (world.getTime() % 20 == 0) {
-                        consumeDurability(stack, player);
+            // 检查提灯是否点亮
+            if (isLit(stack)) {
+                // 检查提灯是否在主手或副手
+                boolean inMainHand = player.getMainHandStack() == stack;
+                boolean inOffHand = player.getOffHandStack() == stack;
+
+                if (inMainHand || inOffHand) {
+                    // 提灯在手持位置，正常工作
+                    if (!world.isClient) {
+                        // 服务器端：消耗耐久和燃料
+                        // 每秒消耗1耐久
+                        if (world.getTime() % 20 == 0) {
+                            consumeDurability(stack, player);
+                        }
+
+                        // 每5秒检查一次燃料
+                        if (world.getTime() % 100 == 0) {
+                            checkAndRefuel(stack, player);
+                        }
+
+                        // 增加威胁值
+                        increaseThreatLevel(player, 20);
+
+                        // 吸引趋光性怪物
+                        attractLightSeekingMobs(player);
                     }
 
-                    // 每5秒检查一次燃料
-                    if (world.getTime() % 100 == 0) {
-                        checkAndRefuel(stack, player);
+                    // 客户端：提供光照效果
+                    if (world.isClient) {
+                        LanternLightSystem.provideLightForLantern(player, stack);
                     }
-
-                    // 增加威胁值
-                    increaseThreatLevel(player, 20);
-
-                    // 吸引趋光性怪物
-                    attractLightSeekingMobs(player);
-                }
-
-                // 客户端：提供光照效果
-                if (world.isClient) {
-                    LanternLightSystem.provideLightForLantern(player, stack);
+                } else {
+                    // 提灯不在手持位置，自动熄灭
+                    if (!world.isClient) {
+                        stack.getOrCreateNbt().putBoolean("Lit", false);
+                        stack.getOrCreateNbt().putInt("CustomModelData", 0);
+                        player.sendMessage(net.minecraft.text.Text.literal("提灯已自动熄灭"), true);
+                    }
                 }
             }
         }
