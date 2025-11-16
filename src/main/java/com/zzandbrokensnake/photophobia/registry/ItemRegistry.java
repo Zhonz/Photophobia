@@ -5,6 +5,9 @@ import com.zzandbrokensnake.photophobia.items.BlueEggItem;
 import com.zzandbrokensnake.photophobia.items.FuelItem;
 import com.zzandbrokensnake.photophobia.items.GlowingMushroomItem;
 import com.zzandbrokensnake.photophobia.items.LanternItem;
+import com.zzandbrokensnake.photophobia.items.CalmCapsuleItem;
+import com.zzandbrokensnake.photophobia.items.CalmPowderItem;
+import com.zzandbrokensnake.photophobia.items.CalmSprayItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -13,9 +16,9 @@ import net.minecraft.util.Identifier;
 public class ItemRegistry {
         // 物品定义
         public static final Item LANTERN = new LanternItem(new Item.Settings().maxCount(1));
-        public static final Item CALM_CAPSULE = new Item(new Item.Settings().maxCount(16));
-        public static final Item CALM_POWDER = new Item(new Item.Settings().maxCount(32));
-        public static final Item CALM_SPRAY = new Item(new Item.Settings().maxCount(8));
+        public static final Item CALM_CAPSULE = new CalmCapsuleItem(new Item.Settings().maxCount(16));
+        public static final Item CALM_POWDER = new CalmPowderItem(new Item.Settings().maxCount(32));
+        public static final Item CALM_SPRAY = new CalmSprayItem(new Item.Settings().maxCount(8));
         public static final Item BLUE_EGG = new BlueEggItem(new Item.Settings().maxCount(1));
         public static final Item FUEL = new FuelItem(new Item.Settings().maxCount(64));
 
