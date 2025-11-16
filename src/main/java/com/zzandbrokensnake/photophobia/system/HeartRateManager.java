@@ -261,6 +261,56 @@ public class HeartRateManager {
     public static void increaseThreat(PlayerEntity player, int amount) {
         HeartRateData data = getHeartRateData(player.getUuid());
         int currentRate = data.getCurrentRate();
-        data.setCurrentRate(Math.min(currentRate + amount, 100));
+        data.setCurrentRate(Math.min(currentRate + amount, 200));
+    }
+
+    /**
+     * 减少心率
+     */
+    public static void decreaseHeartRate(PlayerEntity player, int amount) {
+        HeartRateData data = getHeartRateData(player.getUuid());
+        int currentRate = data.getCurrentRate();
+        data.setCurrentRate(Math.max(60, currentRate - amount));
+    }
+
+    /**
+     * 使用药物减少心率
+     */
+    public static void reduceHeartRateWithMedicine(PlayerEntity player, float reductionRate) {
+        HeartRateData data = getHeartRateData(player.getUuid());
+        int currentRate = data.getCurrentRate();
+        int normalHeartRate = 80; // 正常心率范围上限
+
+        if (currentRate > normalHeartRate) {
+            int excessHeartRate = currentRate - normalHeartRate;
+            int reduction = (int) (excessHeartRate * reductionRate);
+            int newHeartRate = currentRate - reduction;
+
+            // 设置新的心率，确保不低于正常范围
+            data.setCurrentRate(Math.max(normalHeartRate, newHeartRate));
+        }
+    }
+
+    /**
+     * 重置心率到基础值
+     */
+    public static void resetHeartRate(PlayerEntity player) {
+        HeartRateData data = getHeartRateData(player.getUuid());
+        data.setCurrentRate(70); // 重置到基础心率
+    }
+
+    /**
+     * 获取心率状态描述
+     */
+    public static String getHeartRateStatus(int heartRate) {
+        if (heartRate < 100) {
+            return "安全";
+        } else if (heartRate < 140) {
+            return "警戒";
+        } else if (heartRate < 170) {
+            return "危险";
+        } else {
+            return "致命";
+        }
     }
 }

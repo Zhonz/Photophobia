@@ -67,6 +67,18 @@ public class WorldEventHandler {
                 setWorldTimeLocked(world, true);
             }
         }
+
+        // 更新所有在线玩家的心率
+        updateAllPlayersHeartRate(server);
+    }
+
+    /**
+     * 更新所有在线玩家的心率
+     */
+    private static void updateAllPlayersHeartRate(MinecraftServer server) {
+        for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
+            HeartRateManager.updateHeartRate(player);
+        }
     }
 
     /**

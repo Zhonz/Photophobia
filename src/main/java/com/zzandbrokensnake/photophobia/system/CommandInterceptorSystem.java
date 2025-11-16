@@ -9,6 +9,9 @@ import com.mojang.brigadier.tree.LiteralCommandNode;
 import com.mojang.brigadier.tree.CommandNode;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import com.mojang.brigadier.builder.RequiredArgumentBuilder;
+import com.mojang.brigadier.arguments.StringArgumentType;
 
 import java.util.Collection;
 
@@ -21,10 +24,8 @@ public class CommandInterceptorSystem {
     public static void initialize() {
         // 监听指令注册事件
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-            if (environment.dedicated) {
-                // 只在专用服务器上拦截指令
-                interceptTimeCommand(dispatcher);
-            }
+            // 在所有环境（客户端和服务器）都拦截指令
+            interceptTimeCommand(dispatcher);
         });
     }
 
