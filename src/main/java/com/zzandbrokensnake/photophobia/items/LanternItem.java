@@ -9,6 +9,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.enchantment.EnchantmentHelper;
 import com.zzandbrokensnake.photophobia.enchantments.NightWatcherEnchantment;
 import com.zzandbrokensnake.photophobia.registry.EnchantmentRegistry;
 import com.zzandbrokensnake.photophobia.registry.ItemRegistry;
@@ -16,7 +17,7 @@ import com.zzandbrokensnake.photophobia.system.LanternLightSystem;
 
 public class LanternItem extends Item {
     private static final String FUEL_KEY = "Fuel";
-    private static final int MAX_DURABILITY = 6000;
+    private static final int MAX_DURABILITY = 1800;
     private static final long LAST_FUEL_CHECK_KEY = 0L;
 
     public LanternItem(Settings settings) {
@@ -170,18 +171,7 @@ public class LanternItem extends Item {
 
     private void consumeDurability(ItemStack stack, PlayerEntity player) {
         // 检查巡夜者附魔等级
-        int nightWatcherLevel = 0;
-        if (stack.hasEnchantments()) {
-            // 遍历附魔列表查找巡夜者附魔
-            var enchantments = stack.getEnchantments();
-            for (int i = 0; i < enchantments.size(); i++) {
-                var enchantment = enchantments.getCompound(i);
-                if (enchantment.getString("id").equals("photophobia:night_watcher")) {
-                    nightWatcherLevel = enchantment.getInt("lvl");
-                    break;
-                }
-            }
-        }
+        int nightWatcherLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.NIGHT_WATCHER, stack);
         float durabilityMultiplier = NightWatcherEnchantment.getDurabilityMultiplier(nightWatcherLevel);
 
         // 根据附魔等级计算耐久消耗

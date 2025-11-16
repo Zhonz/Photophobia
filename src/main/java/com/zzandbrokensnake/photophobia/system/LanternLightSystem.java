@@ -4,6 +4,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.enchantment.EnchantmentHelper;
 import com.zzandbrokensnake.photophobia.items.LanternItem;
 import com.zzandbrokensnake.photophobia.enchantments.NightWatcherEnchantment;
 import com.zzandbrokensnake.photophobia.registry.EnchantmentRegistry;
@@ -45,18 +46,7 @@ public class LanternLightSystem {
         int baseLightLevel = 10; // 基础光照等级
 
         // 检查巡夜者附魔等级
-        int nightWatcherLevel = 0;
-        if (stack.hasEnchantments()) {
-            // 遍历附魔列表查找巡夜者附魔
-            var enchantments = stack.getEnchantments();
-            for (int i = 0; i < enchantments.size(); i++) {
-                var enchantment = enchantments.getCompound(i);
-                if (enchantment.getString("id").equals("photophobia:night_watcher")) {
-                    nightWatcherLevel = enchantment.getInt("lvl");
-                    break;
-                }
-            }
-        }
+        int nightWatcherLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.NIGHT_WATCHER, stack);
 
         // 根据附魔等级增加光照
         int extraLight = NightWatcherEnchantment.getExtraLightLevel(nightWatcherLevel);
