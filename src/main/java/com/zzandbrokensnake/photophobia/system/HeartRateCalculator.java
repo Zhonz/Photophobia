@@ -14,10 +14,11 @@ public class HeartRateCalculator {
      * 计算玩家的当前心率
      * 
      * @param player 目标玩家
-     * @return 计算后的心率值 (0-100)
+     * @return 计算后的心率值 (60-180)
      */
     public static int calculateHeartRate(PlayerEntity player) {
-        int baseRate = 20 + player.getRandom().nextInt(21); // 20-40随机
+        // 基础心率：正常成年人静息心率60-100，运动时可达180
+        int baseRate = 60 + player.getRandom().nextInt(41); // 60-100随机
 
         // 威胁检测
         double threatBonus = calculateThreatBonus(player);
@@ -29,7 +30,7 @@ public class HeartRateCalculator {
         double environmentBonus = calculateEnvironmentBonus(player);
 
         int finalRate = (int) (baseRate + threatBonus + injuryBonus + environmentBonus);
-        return MathHelper.clamp(finalRate, 0, 100);
+        return MathHelper.clamp(finalRate, 60, 180); // 限制在正常人类心率范围内
     }
 
     /**
@@ -51,7 +52,7 @@ public class HeartRateCalculator {
             boolean isBehind = dotProduct < -0.5; // 在背后
 
             double distanceFactor = (16 - Math.sqrt(distance)) / 16.0;
-            double threatFromEntity = distanceFactor * (isBehind ? 1.5 : 1.0) * 40;
+            double threatFromEntity = distanceFactor * (isBehind ? 1.5 : 1.0) * 60; // 调整为60以适应新范围
 
             threat += threatFromEntity;
         }
@@ -108,13 +109,13 @@ public class HeartRateCalculator {
      * 获取心率描述
      */
     public static String getHeartRateDescription(int heartRate) {
-        if (heartRate < 40)
+        if (heartRate < 70)
             return "平静";
-        if (heartRate < 60)
+        if (heartRate < 90)
             return "正常";
-        if (heartRate < 80)
+        if (heartRate < 120)
             return "紧张";
-        if (heartRate < 100)
+        if (heartRate < 150)
             return "恐慌";
         return "极度恐慌";
     }
@@ -123,13 +124,13 @@ public class HeartRateCalculator {
      * 获取心率颜色
      */
     public static int getHeartRateColor(int heartRate) {
-        if (heartRate < 40)
+        if (heartRate < 70)
             return 0x00FF00; // 绿色
-        if (heartRate < 60)
+        if (heartRate < 90)
             return 0xFFFF00; // 黄色
-        if (heartRate < 80)
+        if (heartRate < 120)
             return 0xFFA500; // 橙色
-        if (heartRate < 100)
+        if (heartRate < 150)
             return 0xFF4500; // 红色
         return 0x8B0000; // 深红色
     }
