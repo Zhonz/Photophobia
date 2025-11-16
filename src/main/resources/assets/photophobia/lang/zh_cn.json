@@ -9,12 +9,23 @@
   "item.photophobia.purple_mushroom": "紫光菇",
   "item.photophobia.hiding_cabinet": "便携式藏匿柜",
   "item.photophobia.blue_egg": "蓝之卵",
+  "item.photophobia.fuel": "提灯燃料",
   
   "tooltip.photophobia.blue_mushroom": "基础食物，发光5分钟",
   "tooltip.photophobia.green_mushroom": "恢复效果，发光10分钟",
   "tooltip.photophobia.red_mushroom": "危险，强光但吸引怪物",
   "tooltip.photophobia.purple_mushroom": "致幻，视觉扭曲",
   "tooltip.photophobia.hiding_cabinet": "右键固体方块进入藏匿状态",
+  "tooltip.photophobia.blue_egg": "右键使用触发重蓝事件",
+  "tooltip.photophobia.fuel": "用于为提灯补充燃料",
+  
+  "tooltip.photophobia.uses_remaining": "剩余使用次数: %d",
+  "tooltip.photophobia.stress_reduction": "压力值降低: %d%%",
+  "tooltip.photophobia.calm_capsule": "右键使用，降低30%压力值",
+  "tooltip.photophobia.calm_powder": "右键使用，降低50%压力值",
+  "tooltip.photophobia.calm_spray": "右键使用，降低70%压力值",
+  "tooltip.photophobia.lantern": "提供光源但会吸引怪物",
+  "tooltip.photophobia.hiding_cabinet": "立即降低30 BPM，获得藏匿效果",
   
   "itemGroup.photophobia.main": "畏光",
   
@@ -22,6 +33,10 @@
   "effect.photophobia.concealment.description": "降低心率并对怪物隐身",
   
   "entity.photophobia.ghost": "幽灵",
+  "entity.photophobia.ghost.description": "在黑暗中游荡的恐怖存在",
+  
+  "enchantment.photophobia.night_watcher": "夜视者",
+  "enchantment.photophobia.night_watcher.desc": "在黑暗中提供有限的视野增强",
   
   "message.photophobia.heart_rate": "心率: %d",
   "message.photophobia.calm_effect_active": "宁神效果生效中",
@@ -32,22 +47,42 @@
   "message.photophobia.ghost_released": "幽灵离开了你的身体",
   "message.photophobia.hiding_state": "进入藏匿状态，心率降低",
   "message.photophobia.cabinet_broken": "柜子已损坏",
+  "message.photophobia.fuel_added": "燃料已添加",
+  "message.photophobia.lantern_out_of_fuel": "提灯燃料耗尽",
+  "message.photophobia.ghost_spawn": "幽灵在附近生成",
+  "message.photophobia.heart_rate_critical": "心率过高！请寻找安全地点",
+  "message.photophobia.heart_rate_calm": "心率恢复正常",
   
-  "tooltip.photophobia.blue_egg": "右键使用触发重蓝事件",
+  "command.photophobia.heartrate.get": "当前心率: %d BPM",
+  "command.photophobia.heartrate.set": "心率已设置为: %d BPM",
+  "command.photophobia.heartrate.invalid": "无效的心率值，请输入0-100之间的数字",
   
-  "tooltip.photophobia.uses_remaining": "剩余使用次数: %d",
-  "tooltip.photophobia.stress_reduction": "压力值降低: %d%%",
-  "tooltip.photophobia.calm_capsule": "右键使用，降低30%压力值",
-  "tooltip.photophobia.calm_powder": "右键使用，降低50%压力值",
-  "tooltip.photophobia.calm_spray": "右键使用，降低70%压力值",
-  "tooltip.photophobia.lantern": "提供光源但会吸引怪物",
-  "tooltip.photophobia.hiding_cabinet": "立即降低30 BPM，获得藏匿效果",
+  "death.attack.photophobia.ghost": "%1$s被幽灵夺走了生命",
+  "death.attack.photophobia.heart_attack": "%1$s因心率过高而心脏骤停",
+  "death.attack.photophobia.darkness": "%1$s在黑暗中迷失了方向",
+  
+  "advancement.photophobia.root.title": "畏光",
+  "advancement.photophobia.root.description": "进入永恒黑夜的世界",
+  "advancement.photophobia.first_heartbeat.title": "第一次心跳",
+  "advancement.photophobia.first_heartbeat.description": "你的心率系统开始工作",
+  "advancement.photophobia.ghost_encounter.title": "幽灵遭遇",
+  "advancement.photophobia.ghost_encounter.description": "第一次遇到幽灵",
+  "advancement.photophobia.survive_night.title": "幸存之夜",
+  "advancement.photophobia.survive_night.description": "在永恒黑夜中存活一晚",
   
   "title.photophobia.config": "畏光模组配置",
   "category.photophobia.general": "通用设置",
   "category.photophobia.heart_rate": "心率系统",
   "category.photophobia.effects": "视觉效果",
   "category.photophobia.entities": "实体设置",
+  "category.photophobia.commands": "指令设置",
+  
+  "text.autoconfig.photophobia.title": "畏光模组配置",
+  "text.autoconfig.photophobia.category.general": "通用设置",
+  "text.autoconfig.photophobia.category.heart_rate": "心率系统",
+  "text.autoconfig.photophobia.category.effects": "视觉效果",
+  "text.autoconfig.photophobia.category.entities": "实体设置",
+  "text.autoconfig.photophobia.category.commands": "指令设置",
   
   "option.photophobia.enable_main_story": "启用主线剧情",
   "option.photophobia.enable_heart_rate_system": "启用心率系统",
@@ -62,6 +97,8 @@
   "option.photophobia.enable_ghost_spawning": "启用幽灵生成",
   "option.photophobia.ghost_spawn_rate": "幽灵生成几率",
   "option.photophobia.enable_possession": "启用附身机制",
+  "option.photophobia.disable_time_command": "禁用时间指令",
+  "option.photophobia.time_command_message": "时间指令拦截消息",
   
   "tooltip.photophobia.enable_main_story": "是否启用模组的主线剧情内容",
   "tooltip.photophobia.enable_heart_rate_system": "是否启用心率计算和显示系统",
@@ -76,12 +113,6 @@
   "tooltip.photophobia.enable_ghost_spawning": "是否在世界中生成幽灵",
   "tooltip.photophobia.ghost_spawn_rate": "幽灵在世界中生成的几率",
   "tooltip.photophobia.enable_possession": "是否允许幽灵附身玩家",
-
-  "category.photophobia.commands": "指令设置",
-  
-  "option.photophobia.disable_time_command": "禁用时间指令",
-  "option.photophobia.time_command_message": "时间指令拦截消息",
-  
   "tooltip.photophobia.disable_time_command": "是否禁用/time指令以防止玩家修改时间",
   "tooltip.photophobia.time_command_message": "当玩家尝试使用时间指令时显示的消息"
 }
