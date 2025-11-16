@@ -75,5 +75,13 @@
   "tooltip.photophobia.concealment_duration": "藏匿效果的持续时间（秒）",
   "tooltip.photophobia.enable_ghost_spawning": "是否在世界中生成幽灵",
   "tooltip.photophobia.ghost_spawn_rate": "幽灵在世界中生成的几率",
-  "tooltip.photophobia.enable_possession": "是否允许幽灵附身玩家"
+  "tooltip.photophobia.enable_possession": "是否允许幽灵附身玩家",
+
+  "category.photophobia.commands": "指令设置",
+  
+  "option.photophobia.disable_time_command": "禁用时间指令",
+  "option.photophobia.time_command_message": "时间指令拦截消息",
+  
+  "tooltip.photophobia.disable_time_command": "是否禁用/time指令以防止玩家修改时间",
+  "tooltip.photophobia.time_command_message": "当玩家尝试使用时间指令时显示的消息"
 }

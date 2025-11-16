@@ -15,6 +15,7 @@ import com.zzandbrokensnake.photophobia.system.WorldEventHandler;
 import com.zzandbrokensnake.photophobia.system.DeathEventHandler;
 import com.zzandbrokensnake.photophobia.system.EternalNightSystem;
 import com.zzandbrokensnake.photophobia.system.DarknessDebuffSystem;
+import com.zzandbrokensnake.photophobia.system.CommandInterceptorSystem;
 import com.zzandbrokensnake.photophobia.world.gen.PhotophobiaWorldGen;
 
 public class PhotophobiaMod implements ModInitializer {
@@ -48,6 +49,9 @@ public class PhotophobiaMod implements ModInitializer {
 
         // Initialize darkness debuff system
         DarknessDebuffSystem.initialize();
+
+        // Initialize command interceptor system
+        CommandInterceptorSystem.initialize();
 
         LOGGER.info("Photophobia Mod initialized successfully");
     }

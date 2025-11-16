@@ -22,6 +22,10 @@ public class PhotophobiaConfig implements ConfigData {
         @ConfigEntry.Gui.TransitiveObject
         public Effects effects = new Effects();
 
+        @ConfigEntry.Category("commands")
+        @ConfigEntry.Gui.TransitiveObject
+        public Commands commands = new Commands();
+
         public static class General {
                 @ConfigEntry.Gui.Tooltip
                 @ConfigEntry.Gui.RequiresRestart
@@ -62,6 +66,14 @@ public class PhotophobiaConfig implements ConfigData {
                 @ConfigEntry.Gui.Tooltip
                 @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
                 public int concealmentDuration = 10;
+        }
+
+        public static class Commands {
+                @ConfigEntry.Gui.Tooltip
+                public boolean disableTimeCommand = true;
+
+                @ConfigEntry.Gui.Tooltip
+                public String timeCommandMessage = "时间指令已被禁用，永恒黑夜模式已激活";
         }
 
         public static PhotophobiaConfig getConfig() {
