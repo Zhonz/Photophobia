@@ -42,27 +42,23 @@ public class HeartRateHudRenderer implements HudRenderCallback {
         int x = 10; // 左侧边距
         int y = 10; // 顶部边距
 
-        // 计算心脏跳动频率和大小（放大2倍）
+        // 计算心脏大小变化（基础大小2.0倍，最大1.3倍变化）
         float baseScale = 2.0f; // 基础大小放大2倍
-        float scale = baseScale + ((heartRate - 60) / 140.0f) * 1.0f; // 60-200映射到2.0-3.0
-        float alpha = 0.8f + ((heartRate - 60) / 140.0f) * 0.2f; // 60-200映射到0.8-1.0
+        float sizeMultiplier = 1.0f + ((heartRate - 60) / 140.0f) * 0.3f; // 60-200映射到1.0-1.3倍
+        float scale = baseScale * sizeMultiplier; // 最终大小 = 基础大小 × 变化倍数
+        
+        float alpha = 1.0f; // 固定透明度
 
         // 根据心率选择心脏纹理（提高跳动速度下限）
         long currentTime = System.currentTimeMillis();
         int animationSpeed = Math.max(3, heartRate / 15); // 提高下限到3，心率越高动画越快
         int textureIndex = (int) ((currentTime / (1000 / animationSpeed)) % HEART_TEXTURES.length);
 
-        // 计算颜色（心率高时微变红，低心率保持正常颜色）
-        float redTint = Math.min(1.0f, Math.max(0.0f, (heartRate - 100) / 100.0f)); // 心率100以上开始变红
-        float greenTint = 1.0f - redTint * 0.3f; // 稍微减少绿色
-        float blueTint = 1.0f - redTint * 0.3f; // 稍微减少蓝色
-
-        // 确保低心率时颜色正常（不偏蓝）
-        if (heartRate < 100) {
-            redTint = 1.0f;
-            greenTint = 1.0f;
-            blueTint = 1.0f;
-        }
+        // 简化颜色变化：心率越高越红
+        // 心率60-200映射到红色分量1.0-1.0，绿色和蓝色分量1.0-0.0
+        float redTint = 1.0f; // 红色始终保持最大
+        float greenTint = Math.max(0.0f, 1.0f - ((heartRate - 60) / 140.0f)); // 心率越高绿色越少
+        float blueTint = Math.max(0.0f, 1.0f - ((heartRate - 60) / 140.0f)); // 心率越高蓝色越少
 
         // 渲染心脏图标（带颜色变化）
         renderHeartIcon(drawContext, x, y, scale, alpha, textureIndex, redTint, greenTint, blueTint);
