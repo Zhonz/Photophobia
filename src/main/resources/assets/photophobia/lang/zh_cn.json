@@ -35,7 +35,7 @@
   "entity.photophobia.ghost": "幽灵",
   "entity.photophobia.ghost.description": "在黑暗中游荡的恐怖存在",
   
-  "enchantment.photophobia.night_watcher": "守夜人",
+  "enchantment.photophobia.night_watcher": "守夜者",
   "enchantment.photophobia.night_watcher.desc": "在黑暗中提供有限的视野增强",
   
   "message.photophobia.heart_rate": "心率: %d",
